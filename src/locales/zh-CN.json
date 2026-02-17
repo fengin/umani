@@ -1,0 +1,83 @@
+{
+    "app": {
+        "name": "余香",
+        "tagline": "你的文风 DNA，持续进化中"
+    },
+    "nav": {
+        "workspace": "工作台",
+        "editor": "编辑器",
+        "skills": "Skill 管理",
+        "settings": "设置"
+    },
+    "workspace": {
+        "title": "工作台",
+        "welcome": "欢迎回来",
+        "newSkill": "+ 新建 Skill",
+        "startWriting": "开始写作",
+        "import": "导入",
+        "stats": {
+            "activeSkills": "活跃 Skill",
+            "evolutions": "进化次数",
+            "articles": "文章总数",
+            "blocklist": "禁止清单"
+        },
+        "recentArticles": "最近文章",
+        "mySkills": "我的 Skills",
+        "viewAll": "查看全部",
+        "quickStart": {
+            "title": "快速上手",
+            "desc": "上传 3-5 篇你最满意的原创文章，让 AI 提取你的独特写作风格。",
+            "action": "上传文章"
+        }
+    },
+    "editor": {
+        "title": "编辑器",
+        "regenerate": "重新生成",
+        "evolveSkill": "进化 Skill",
+        "accept": "采纳修改",
+        "export": "导出"
+    },
+    "skills": {
+        "title": "Skill 管理",
+        "name": "名称",
+        "category": "分类",
+        "version": "版本",
+        "evolutions": "进化次数",
+        "lastUsed": "最近使用",
+        "empty": "还没有 Skill，开始创建你的第一个文风模型吧"
+    },
+    "settings": {
+        "title": "设置",
+        "llmConfig": "LLM 配置",
+        "provider": "服务提供商",
+        "apiKey": "API Key",
+        "model": "模型",
+        "language": "语言",
+        "dataManagement": "数据管理",
+        "exportData": "导出数据",
+        "importData": "导入数据",
+        "clearCache": "清除缓存",
+        "about": "关于"
+    },
+    "common": {
+        "save": "保存",
+        "cancel": "取消",
+        "delete": "删除",
+        "edit": "编辑",
+        "confirm": "确认",
+        "loading": "加载中...",
+        "noData": "暂无数据",
+        "status": {
+            "editing": "编辑中",
+            "published": "已发布",
+            "draft": "草稿"
+        },
+        "time": {
+            "justNow": "刚刚",
+            "minutesAgo": "{{count}} 分钟前",
+            "hoursAgo": "{{count}} 小时前",
+            "yesterday": "昨天",
+            "daysAgo": "{{count}} 天前"
+        }
+    }
+}

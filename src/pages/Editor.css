@@ -1,0 +1,132 @@
+.editor-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    /* Override content padding from parent */
+    margin: -24px -32px;
+    padding: 0;
+}
+
+/* Toolbar */
+.editor-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.toolbar-left {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+}
+
+.toolbar-right {
+    display: flex;
+    gap: 8px;
+}
+
+.skill-select {
+    width: 180px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid var(--border-hard);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.skill-select:focus {
+    border-color: var(--accent);
+}
+
+.topic-input {
+    flex: 1;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--border-hard);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.topic-input:focus {
+    border-color: var(--accent);
+}
+
+/* Status bar */
+.status-bar {
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-sidebar);
+    border-bottom: 1px solid var(--border-soft);
+    flex-shrink: 0;
+}
+
+/* Dual editor panels */
+.editor-panels {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.editor-divider {
+    width: 1px;
+    background: var(--border-hard);
+    flex-shrink: 0;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--bg-sidebar);
+    flex-shrink: 0;
+}
+
+.panel-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.badge.changed {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: transparent;
+}
+
+/* Placeholder */
+.editor-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

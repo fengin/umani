@@ -1,0 +1,83 @@
+{
+    "app": {
+        "name": "Savor",
+        "tagline": "Your writing DNA, continuously evolving"
+    },
+    "nav": {
+        "workspace": "Workspace",
+        "editor": "Editor",
+        "skills": "Skills",
+        "settings": "Settings"
+    },
+    "workspace": {
+        "title": "Workspace",
+        "welcome": "Welcome back",
+        "newSkill": "+ New Skill",
+        "startWriting": "Start Writing",
+        "import": "Import",
+        "stats": {
+            "activeSkills": "Active Skills",
+            "evolutions": "Evolutions",
+            "articles": "Articles",
+            "blocklist": "Blocklist"
+        },
+        "recentArticles": "Recent Articles",
+        "mySkills": "My Skills",
+        "viewAll": "View All",
+        "quickStart": {
+            "title": "Quick Start",
+            "desc": "Upload 3-5 of your best original articles to let AI extract your unique writing style.",
+            "action": "Upload Articles"
+        }
+    },
+    "editor": {
+        "title": "Editor",
+        "regenerate": "Regenerate",
+        "evolveSkill": "Evolve Skill",
+        "accept": "Accept Changes",
+        "export": "Export"
+    },
+    "skills": {
+        "title": "Skills",
+        "name": "Name",
+        "category": "Category",
+        "version": "Version",
+        "evolutions": "Evolutions",
+        "lastUsed": "Last Used",
+        "empty": "No skills yet. Create your first writing style model."
+    },
+    "settings": {
+        "title": "Settings",
+        "llmConfig": "LLM Configuration",
+        "provider": "Provider",
+        "apiKey": "API Key",
+        "model": "Model",
+        "language": "Language",
+        "dataManagement": "Data Management",
+        "exportData": "Export Data",
+        "importData": "Import Data",
+        "clearCache": "Clear Cache",
+        "about": "About"
+    },
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "confirm": "Confirm",
+        "loading": "Loading...",
+        "noData": "No data",
+        "status": {
+            "editing": "Editing",
+            "published": "Published",
+            "draft": "Draft"
+        },
+        "time": {
+            "justNow": "Just now",
+            "minutesAgo": "{{count}}m ago",
+            "hoursAgo": "{{count}}h ago",
+            "yesterday": "Yesterday",
+            "daysAgo": "{{count}}d ago"
+        }
+    }
+}

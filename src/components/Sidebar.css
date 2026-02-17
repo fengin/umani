@@ -1,0 +1,17 @@
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.version-info {
+    font-size: 11px !important;
+    color: var(--text-tertiary) !important;
+}

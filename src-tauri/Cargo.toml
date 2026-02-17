@@ -1,0 +1,34 @@
+[package]
+name = "umani-app"
+version = "0.1.0"
+description = "余香 Savor — AI 驱动的写作风格学习工具"
+authors = ["fengin"]
+license = "MIT"
+edition = "2021"
+repository = "https://github.com/fengin/umani"
+
+[lib]
+name = "umani_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31", features = ["bundled"] }
+reqwest = { version = "0.12", features = ["json"] }
+tokio = { version = "1", features = ["rt", "macros"] }
+chrono = { version = "0.4", features = ["serde"] }
+similar = "2"
+
+[profile.release]
+lto = true            # 链接时优化，减小体积
+strip = true           # 移除调试符号
+codegen-units = 1      # 单代码生成单元，最大优化
+opt-level = 3          # 最高优化等级
+panic = "abort"        # panic 时直接 abort，减小体积
+

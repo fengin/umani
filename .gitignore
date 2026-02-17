@@ -1,0 +1,51 @@
+# === 依赖 ===
+node_modules/
+
+# === 构建产物 ===
+dist/
+dist-ssr/
+
+# === Rust / Tauri ===
+src-tauri/target/
+src-tauri/WixTools/
+src-tauri/gen/
+
+# === 日志 ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === 环境变量 ===
+.env
+.env.local
+.env.*.local
+*.local
+
+# === IDE / 编辑器 ===
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# === 操作系统 ===
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# === 设计稿 & 文档原型 (不进仓库) ===
+ui-prototypes/
+
+# === 其他 ===
+*.bak
+*.tmp
+*.swp

@@ -1,0 +1,168 @@
+.skills-page {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+}
+
+/* Left: Skill list */
+.skills-list-section {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Create form */
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background: var(--bg-sidebar);
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* Cards */
+.skill-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.skill-card {
+    padding: 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.skill-card:hover {
+    border-color: var(--border-hard);
+    background: var(--bg-hover);
+}
+
+.skill-card.active {
+    border-color: var(--accent);
+    background: var(--bg-active);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.skill-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.card-desc {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Right: Detail */
+.skill-detail-section {
+    flex: 1;
+    min-width: 300px;
+    border-left: 1px solid var(--border-soft);
+    padding-left: 24px;
+    overflow-y: auto;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.detail-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--status-error);
+    border: 1px solid var(--status-error);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all var(--transition-fast);
+}
+
+.btn-danger:hover {
+    background: var(--status-error);
+    color: white;
+}
+
+/* Version list */
+.version-list h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.version-item {
+    padding: 10px;
+    border-left: 2px solid var(--border-hard);
+    margin-bottom: 8px;
+    padding-left: 12px;
+}
+
+.version-header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.version-summary {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
