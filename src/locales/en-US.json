@@ -7,7 +7,8 @@
         "workspace": "Workspace",
         "editor": "Editor",
         "skills": "Skills",
-        "settings": "Settings"
+        "settings": "Settings",
+        "about": "About"
     },
     "workspace": {
         "title": "Workspace",
@@ -58,6 +59,16 @@
         "importData": "Import Data",
         "clearCache": "Clear Cache",
         "about": "About"
+    },
+    "about": {
+        "productName": "Savor 余香",
+        "description": "Savor is a personalized writing style asset modeling and management tool, designed to eliminate AI-flavored writing through continuously iterating Skills, achieving personalized article writing characteristics.",
+        "authorLabel": "Author",
+        "author": "Lingfeng (fengin)",
+        "websiteLabel": "Website",
+        "website": "AI Book",
+        "theoryLabel": "Theory",
+        "theory": "How to remove AI taste from AI-written articles and add your personal flavor?"
     },
     "common": {
         "save": "Save",

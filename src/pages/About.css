@@ -1,0 +1,92 @@
+.about-page {
+    max-width: 640px;
+}
+
+.about-page h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.about-card {
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.about-logo {
+    font-size: 36px;
+    line-height: 1;
+}
+
+.about-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    background: var(--bg-hover);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+.about-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.about-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.about-label {
+    color: var(--text-tertiary);
+    min-width: 64px;
+}
+
+.about-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.about-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity var(--transition-fast);
+}
+
+.about-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.about-copyright {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-soft);
+}

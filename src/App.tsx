@@ -4,6 +4,7 @@ import WorkspacePage from './pages/Workspace';
 import EditorPage from './pages/Editor';
 import SkillsPage from './pages/Skills';
 import SettingsPage from './pages/Settings';
+import AboutPage from './pages/About';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
     </div>

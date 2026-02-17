@@ -175,20 +175,6 @@ export default function SettingsPage() {
                     </div>
                 </div>
             </section>
-
-            {/* 关于 */}
-            <section className="setting-section">
-                <h2>{t('settings.about')}</h2>
-                <div className="about-info">
-                    <div className="about-row">
-                        <span>Savor (余香)</span>
-                        <span className="badge">v0.1.0</span>
-                    </div>
-                    <p className="hint">
-                        个人文风建模与管理平台 —— 用你的规则，重塑你的表达
-                    </p>
-                </div>
-            </section>
         </div>
     );
 }

@@ -7,6 +7,7 @@ const navItems = [
     { path: '/editor', icon: '✏️', labelKey: 'nav.editor' },
     { path: '/skills', icon: '📦', labelKey: 'nav.skills' },
     { path: '/settings', icon: '⚙️', labelKey: 'nav.settings' },
+    { path: '/about', icon: '💡', labelKey: 'nav.about' },
 ];
 
 export default function Sidebar() {
@@ -15,7 +16,7 @@ export default function Sidebar() {
     return (
         <aside className="sidebar">
             <div className="sidebar-brand">
-                <span style={{ fontSize: '18px' }}>🍜</span>
+                <span style={{ fontSize: '18px' }}>🍃</span>
                 <span>{t('app.name')}</span>
             </div>
 

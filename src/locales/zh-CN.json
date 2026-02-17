@@ -7,7 +7,8 @@
         "workspace": "工作台",
         "editor": "编辑器",
         "skills": "Skill 管理",
-        "settings": "设置"
+        "settings": "设置",
+        "about": "关于"
     },
     "workspace": {
         "title": "工作台",
@@ -58,6 +59,16 @@
         "importData": "导入数据",
         "clearCache": "清除缓存",
         "about": "关于"
+    },
+    "about": {
+        "productName": "余香 Savor",
+        "description": "余香，一个人化文风资产建模与管理工具，旨在通过持续迭代的 Skill 消除 AI 味道，实现个人化文章写作特点。",
+        "authorLabel": "作者",
+        "author": "凌封 (fengin)",
+        "websiteLabel": "网站",
+        "website": "AI全书",
+        "theoryLabel": "理论依据",
+        "theory": "如何让AI编写的文章去除AI味，带上你个人的味道？"
     },
     "common": {
         "save": "保存",
