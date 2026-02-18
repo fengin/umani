@@ -114,7 +114,7 @@
     },
     "about": {
         "productName": "余香 Savor",
-        "description": "余香，一个人化文风资产建模与管理工具，旨在通过持续迭代的 Skill 消除 AI 味道，实现个人化文章写作特点。",
+        "description": "余香，个人文风建模与管理工具(写作Skill训练和生成)，旨在通过持续迭代的 Skill 消除 AI 味道，实现AI编写个性化文章。",
         "authorLabel": "作者",
         "author": "凌封 (fengin)",
         "websiteLabel": "网站",

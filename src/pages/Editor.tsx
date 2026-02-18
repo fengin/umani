@@ -39,7 +39,7 @@ export default function EditorPage() {
     // 首次加载 + URL 参数处理
     useEffect(() => {
         const init = async () => {
-            const skillList = await loadSkills();
+            await loadSkills();
             // 检查 URL 中是否有 articleId 参数
             const urlArticleId = searchParams.get('articleId');
             if (urlArticleId) {
