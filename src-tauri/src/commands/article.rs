@@ -110,6 +110,33 @@ pub fn save_article(
     Ok(())
 }
 
+/// 获取单篇文章
+#[tauri::command]
+pub fn get_article(db: State<'_, Database>, article_id: i64) -> Result<Article, String> {
+    let conn = db.conn.lock().map_err(|e| e.to_string())?;
+    conn.query_row(
+        "SELECT id, title, original_content, ai_generated_content, user_refined_content,
+                skill_id, skill_version_used, status, created_at, updated_at
+         FROM article WHERE id = ?1",
+        rusqlite::params![article_id],
+        |row| {
+            Ok(Article {
+                id: row.get(0)?,
+                title: row.get(1)?,
+                original_content: row.get(2)?,
+                ai_generated_content: row.get(3)?,
+                user_refined_content: row.get(4)?,
+                skill_id: row.get(5)?,
+                skill_version_used: row.get(6)?,
+                status: row.get(7)?,
+                created_at: row.get(8)?,
+                updated_at: row.get(9)?,
+            })
+        },
+    )
+    .map_err(|e| format!("获取文章失败: {}", e))
+}
+
 /// 列出文章
 #[tauri::command]
 pub fn list_articles(db: State<'_, Database>) -> Result<Vec<Article>, String> {

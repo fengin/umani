@@ -2,6 +2,119 @@
     max-width: 960px;
 }
 
+/* Onboarding Guide */
+.onboarding-card {
+    /* 去除外层大框 */
+    margin-bottom: 32px;
+}
+
+.onboarding-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.onboarding-steps {
+    display: flex;
+    flex-direction: row;
+    /* 改为横向排列 */
+    gap: 16px;
+}
+
+.onboarding-step {
+    flex: 1;
+    /* 三等分 */
+    display: flex;
+    flex-direction: column;
+    /* 内部改为纵向布局适应卡片 */
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-soft);
+    background: var(--bg-sidebar);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.onboarding-step.active {
+    border-color: var(--accent);
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.onboarding-step.completed {
+    opacity: 0.8;
+    background: var(--bg-secondary);
+    border-color: transparent;
+}
+
+.onboarding-step.pending {
+    opacity: 0.5;
+    background: var(--bg-secondary);
+    border-style: dashed;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    /* 方圆角 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.onboarding-step.active .step-number {
+    background: var(--accent);
+    color: white;
+}
+
+.onboarding-step.completed .step-number {
+    background: var(--status-success-bg);
+    color: var(--status-success);
+}
+
+.step-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.step-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.step-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.step-action {
+    margin-top: auto;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-top: 12px;
+}
+
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -31,6 +144,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
     margin-bottom: 32px;
+}
+
+.stats-grid.stats-3 {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .stat-card {
@@ -95,4 +212,102 @@
 
 .empty-state.small {
     padding: 24px 20px;
+}
+
+/* Skill Preview Cards */
+.skill-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-preview-card {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-soft);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.skill-preview-card:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.preview-header .skill-name {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.preview-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text-tertiary);
+}
+
+.preview-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Article Preview List */
+.article-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.article-preview-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: background var(--transition-fast);
+}
+
+.article-preview-item:hover {
+    background: var(--bg-hover);
+}
+
+.article-title {
+    flex: 1;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.article-preview-item .time {
+    font-size: 11px;
+    color: var(--text-tertiary);
+}
+
+.article-preview-item.clickable {
+    cursor: pointer;
+}
+
+.article-preview-item.clickable:hover {
+    background: var(--bg-hover);
+}
+
+.article-skill-tag {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 6px;
+    font-size: 12px;
 }

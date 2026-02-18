@@ -4,7 +4,7 @@ import './Sidebar.css';
 
 const navItems = [
     { path: '/', icon: '📋', labelKey: 'nav.workspace' },
-    { path: '/editor', icon: '✏️', labelKey: 'nav.editor' },
+    { path: '/editor', icon: '🎯', labelKey: 'nav.editor' },
     { path: '/skills', icon: '📦', labelKey: 'nav.skills' },
     { path: '/settings', icon: '⚙️', labelKey: 'nav.settings' },
     { path: '/about', icon: '💡', labelKey: 'nav.about' },

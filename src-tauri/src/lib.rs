@@ -41,6 +41,7 @@ pub fn run() {
             // Article
             commands::article::generate_article,
             commands::article::save_article,
+            commands::article::get_article,
             commands::article::list_articles,
             // Diff
             commands::diff::compute_diff,
@@ -49,6 +50,9 @@ pub fn run() {
             // Export
             commands::export::export_skill_markdown,
             commands::export::export_skill_json,
+            // Onboarding
+            commands::onboarding::get_onboarding_status,
+            commands::skill::create_skill_with_samples,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

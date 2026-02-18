@@ -130,3 +130,89 @@
     justify-content: center;
     height: 100%;
 }
+
+/* Training Guide */
+.training-guide {
+    text-align: center;
+    max-width: 700px;
+    padding: 40px 24px;
+}
+
+.training-guide h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.guide-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.guide-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+}
+
+.guide-step {
+    flex: 1;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    background: var(--bg-sidebar);
+    transition: all var(--transition-normal);
+}
+
+.guide-step:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card);
+}
+
+.guide-step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.guide-step-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.guide-step-text strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.guide-step-text span {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.guide-arrow {
+    font-size: 20px;
+    color: var(--text-tertiary);
+    margin-top: 32px;
+    font-weight: 300;
+}

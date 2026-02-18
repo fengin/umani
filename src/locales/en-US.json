@@ -5,7 +5,7 @@
     },
     "nav": {
         "workspace": "Workspace",
-        "editor": "Editor",
+        "editor": "Style Training",
         "skills": "Skills",
         "settings": "Settings",
         "about": "About"
@@ -14,38 +14,90 @@
         "title": "Workspace",
         "welcome": "Welcome back",
         "newSkill": "+ New Skill",
-        "startWriting": "Start Writing",
+        "startTraining": "Style Training",
         "import": "Import",
         "stats": {
             "activeSkills": "Active Skills",
             "evolutions": "Evolutions",
-            "articles": "Articles",
-            "blocklist": "Blocklist"
+            "trainings": "Training Sessions"
         },
-        "recentArticles": "Recent Articles",
+        "recentTrainings": "Recent Trainings",
         "mySkills": "My Skills",
-        "viewAll": "View All",
-        "quickStart": {
-            "title": "Quick Start",
-            "desc": "Upload 3-5 of your best original articles to let AI extract your unique writing style.",
-            "action": "Upload Articles"
-        }
+        "viewAll": "View all"
+    },
+    "onboarding": {
+        "title": "Quick Start",
+        "step1": "Configure LLM",
+        "step1Desc": "Set up your AI model API Key and endpoint",
+        "step2": "Create Skill",
+        "step2Desc": "Paste your original writings, AI extracts your style",
+        "step3": "Style Training",
+        "step3Desc": "AI generates → you edit → Skill auto-evolves",
+        "completed": "Completed",
+        "go": "Go"
     },
     "editor": {
-        "title": "Editor",
+        "title": "Style Training",
         "regenerate": "Regenerate",
         "evolveSkill": "Evolve Skill",
-        "accept": "Accept Changes",
-        "export": "Export"
+        "accept": "Accept changes",
+        "export": "Export",
+        "selectSkill": "Select Skill...",
+        "topicPlaceholder": "Enter training topic (e.g., a short review about AI)",
+        "generateBtn": "Generate Training Article",
+        "generating": "AI is generating...",
+        "generateDone": "Generation complete — edit the right panel to match your style",
+        "generateFailed": "Generation failed",
+        "saved": "Saved",
+        "saveFailed": "Save failed",
+        "noChanges": "No changes made, evolution not needed",
+        "evolving": "Analyzing differences...",
+        "evolveSuccess": "Diff analysis complete, Skill evolved",
+        "evolveFailed": "Evolution failed",
+        "selectSkillAndTopic": "Please select a Skill and enter a training topic",
+        "modified": "Modified",
+        "aiDraft": "AI Draft (read-only)",
+        "yourEdit": "Your Style Edit",
+        "noSkillHint": "Please create a Skill in Skills Management first before training",
+        "guideTitle": "Style Training Flow",
+        "guideSubtitle": "Through iterative training, teach AI your writing style to generate articles without AI flavor",
+        "step1Title": "Select Skill & Topic",
+        "step1Desc": "Choose your writing Skill and enter a training topic",
+        "step2Title": "AI Generates → You Edit",
+        "step2Desc": "AI generates a draft using your Skill, you refine it to your style",
+        "step3Title": "Evolve Skill",
+        "step3Desc": "Analyze the differences, Skill learns and evolves automatically"
     },
     "skills": {
-        "title": "Skills",
-        "name": "Name",
+        "title": "Skills Management",
+        "name": "Skill Name",
         "category": "Category",
         "version": "Version",
         "evolutions": "Evolutions",
-        "lastUsed": "Last Used",
-        "empty": "No skills yet. Create your first writing style model."
+        "lastUsed": "Last used",
+        "empty": "No Skills yet. Create your first writing style model!",
+        "categoryPlaceholder": "Category (e.g., Tech Review, Life Notes)",
+        "descPlaceholder": "Description (optional)",
+        "samplesLabel": "Original Samples (optional)",
+        "samplesPlaceholder": "Paste 1-5 original articles, separated by ---.\n\nAI will analyze your writing style and extract initial rules.\n\nLeave empty for a blank Skill.",
+        "createWithSamples": "Create & Analyze Style",
+        "createWithSamplesSuccess": "Skill created with initial style rules extracted from samples",
+        "createSuccess": "Skill created successfully",
+        "createFailed": "Creation failed",
+        "analyzing": "AI is analyzing your writing style...",
+        "deleteConfirm": "Delete this Skill? All version data will be removed.",
+        "deleted": "Deleted",
+        "deleteFailed": "Delete failed",
+        "versionHistory": "Version History",
+        "currentVersion": "Current",
+        "manualEditSummary": "Manual edit update",
+        "saveAsNewVersion": "Save as New Version",
+        "versionSaved": "Saved as new version",
+        "versionSaveFailed": "Failed to save version",
+        "exportMd": "Export Markdown",
+        "exportJson": "Export JSON",
+        "infoSaved": "Skill info updated",
+        "infoSaveFailed": "Update failed"
     },
     "settings": {
         "title": "Settings",
@@ -55,20 +107,20 @@
         "model": "Model",
         "language": "Language",
         "dataManagement": "Data Management",
-        "exportData": "Export Data",
-        "importData": "Import Data",
-        "clearCache": "Clear Cache",
+        "exportData": "Export data",
+        "importData": "Import data",
+        "clearCache": "Clear cache",
         "about": "About"
     },
     "about": {
-        "productName": "Savor 余香",
-        "description": "Savor is a personalized writing style asset modeling and management tool, designed to eliminate AI-flavored writing through continuously iterating Skills, achieving personalized article writing characteristics.",
+        "productName": "Savor",
+        "description": "Savor is a personalized writing style asset modeling and management tool, designed to eliminate AI flavor through iterative Skill evolution, achieving personalized article writing characteristics.",
         "authorLabel": "Author",
         "author": "Lingfeng (fengin)",
         "websiteLabel": "Website",
-        "website": "AI Book",
+        "website": "AI Quanshu",
         "theoryLabel": "Theory",
-        "theory": "How to remove AI taste from AI-written articles and add your personal flavor?"
+        "theory": "How to remove AI flavor from AI-written articles and add your personal touch?"
     },
     "common": {
         "save": "Save",
@@ -79,16 +131,16 @@
         "loading": "Loading...",
         "noData": "No data",
         "status": {
-            "editing": "Editing",
-            "published": "Published",
+            "editing": "Training",
+            "published": "Completed",
             "draft": "Draft"
         },
         "time": {
             "justNow": "Just now",
-            "minutesAgo": "{{count}}m ago",
-            "hoursAgo": "{{count}}h ago",
+            "minutesAgo": "{{count}} min ago",
+            "hoursAgo": "{{count}} hours ago",
             "yesterday": "Yesterday",
-            "daysAgo": "{{count}}d ago"
+            "daysAgo": "{{count}} days ago"
         }
     }
 }

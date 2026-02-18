@@ -1,4 +1,5 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Editor from '@monaco-editor/react';
 import { skillApi } from '../services/skillApi';
@@ -8,6 +9,7 @@ import './Editor.css';
 
 export default function EditorPage() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     // 状态
     const [skills, setSkills] = useState<Skill[]>([]);
@@ -20,37 +22,63 @@ export default function EditorPage() {
     const [statusMsg, setStatusMsg] = useState('');
     const editorRef = useRef<unknown>(null);
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     // 加载 Skills
     const loadSkills = useCallback(async () => {
         try {
             const list = await skillApi.list();
             setSkills(list);
+            return list;
         } catch (e) {
             console.error('加载 Skills 失败:', e);
+            return [];
         }
     }, []);
 
-    // 首次加载
-    useState(() => {
-        loadSkills();
-    });
+    // 首次加载 + URL 参数处理
+    useEffect(() => {
+        const init = async () => {
+            const skillList = await loadSkills();
+            // 检查 URL 中是否有 articleId 参数
+            const urlArticleId = searchParams.get('articleId');
+            if (urlArticleId) {
+                try {
+                    const art = await articleApi.get(Number(urlArticleId));
+                    setArticle(art);
+                    setAiContent(art.ai_generated_content);
+                    setUserContent(art.user_refined_content || art.ai_generated_content);
+                    setTopic(art.title);
+                    // 自动选中对应 Skill
+                    if (art.skill_id) {
+                        setSelectedSkillId(art.skill_id);
+                    }
+                } catch (e) {
+                    console.error('加载文章失败:', e);
+                }
+                // 消费掉参数
+                setSearchParams({}, { replace: true });
+            }
+        };
+        init();
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // AI 生成文章
     const handleGenerate = async () => {
         if (!selectedSkillId || !topic.trim()) {
-            setStatusMsg('请选择 Skill 并输入写作主题');
+            setStatusMsg(t('editor.selectSkillAndTopic'));
             return;
         }
         setLoading(true);
-        setStatusMsg('AI 正在生成文章...');
+        setStatusMsg(t('editor.generating'));
         try {
             const result = await articleApi.generate(selectedSkillId, topic);
             setArticle(result);
             setAiContent(result.ai_generated_content);
             setUserContent(result.ai_generated_content);
-            setStatusMsg('生成完成');
+            setStatusMsg(t('editor.generateDone'));
         } catch (e) {
-            setStatusMsg(`生成失败: ${e}`);
+            setStatusMsg(`${t('editor.generateFailed')}: ${e}`);
         } finally {
             setLoading(false);
         }
@@ -61,9 +89,9 @@ export default function EditorPage() {
         if (!article) return;
         try {
             await articleApi.save(article.id, userContent);
-            setStatusMsg('已保存');
+            setStatusMsg(t('editor.saved'));
         } catch (e) {
-            setStatusMsg(`保存失败: ${e}`);
+            setStatusMsg(`${t('editor.saveFailed')}: ${e}`);
         }
     };
 
@@ -71,16 +99,16 @@ export default function EditorPage() {
     const handleEvolve = async () => {
         if (!article || !selectedSkillId) return;
         if (aiContent === userContent) {
-            setStatusMsg('内容未修改，无需进化');
+            setStatusMsg(t('editor.noChanges'));
             return;
         }
         setLoading(true);
-        setStatusMsg('正在分析修改差异...');
+        setStatusMsg(t('editor.evolving'));
         try {
             await articleApi.analyzeDiff(article.id, aiContent, userContent);
-            setStatusMsg('Diff 分析完成，Skill 进化中需在 Skill 管理页查看');
+            setStatusMsg(t('editor.evolveSuccess'));
         } catch (e) {
-            setStatusMsg(`进化失败: ${e}`);
+            setStatusMsg(`${t('editor.evolveFailed')}: ${e}`);
         } finally {
             setLoading(false);
         }
@@ -91,9 +119,12 @@ export default function EditorPage() {
         return (
             <div className="editor-page">
                 <div className="empty-state">
-                    <div className="icon">✏️</div>
+                    <div className="icon">🎯</div>
                     <h1>{t('editor.title')}</h1>
-                    <p>请先在「Skill 管理」中创建 Skill，才能开始写作</p>
+                    <p>{t('editor.noSkillHint')}</p>
+                    <button className="btn btn-primary" onClick={() => navigate('/skills')}>
+                        {t('workspace.newSkill')}
+                    </button>
                 </div>
             </div>
         );
@@ -109,7 +140,7 @@ export default function EditorPage() {
                         value={selectedSkillId || ''}
                         onChange={(e) => setSelectedSkillId(Number(e.target.value) || null)}
                     >
-                        <option value="">选择 Skill...</option>
+                        <option value="">{t('editor.selectSkill')}</option>
                         {skills.map((s) => (
                             <option key={s.id} value={s.id}>
                                 {s.name} (v{s.current_version})
@@ -120,7 +151,7 @@ export default function EditorPage() {
                     <input
                         className="topic-input"
                         type="text"
-                        placeholder="输入写作主题..."
+                        placeholder={t('editor.topicPlaceholder')}
                         value={topic}
                         onChange={(e) => setTopic(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
@@ -133,7 +164,7 @@ export default function EditorPage() {
                         onClick={handleGenerate}
                         disabled={loading}
                     >
-                        {loading ? '生成中...' : t('workspace.startWriting')}
+                        {loading ? t('editor.generating') : t('editor.generateBtn')}
                     </button>
                     {article && (
                         <>
@@ -156,7 +187,7 @@ export default function EditorPage() {
                 <div className="editor-panels">
                     <div className="editor-panel">
                         <div className="panel-header">
-                            <span className="panel-label">AI 生成原文（只读）</span>
+                            <span className="panel-label">{t('editor.aiDraft')}</span>
                             <span className="badge">v{article.skill_version_used}</span>
                         </div>
                         <Editor
@@ -181,9 +212,9 @@ export default function EditorPage() {
 
                     <div className="editor-panel">
                         <div className="panel-header">
-                            <span className="panel-label">编辑区</span>
+                            <span className="panel-label">{t('editor.yourEdit')}</span>
                             {aiContent !== userContent && (
-                                <span className="badge changed">已修改</span>
+                                <span className="badge changed">{t('editor.modified')}</span>
                             )}
                         </div>
                         <Editor
@@ -209,12 +240,34 @@ export default function EditorPage() {
                 </div>
             ) : (
                 <div className="editor-placeholder">
-                    <div className="empty-state">
-                        <div className="icon">📝</div>
-                        <p>选择 Skill 并输入主题，点击「开始写作」生成 AI 初稿</p>
-                        <p style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>
-                            生成后，在右侧编辑区修改文章，然后点击「进化 Skill」让 AI 学习你的风格
-                        </p>
+                    <div className="training-guide">
+                        <h2>{t('editor.guideTitle')}</h2>
+                        <p className="guide-subtitle">{t('editor.guideSubtitle')}</p>
+                        <div className="guide-steps">
+                            <div className="guide-step">
+                                <div className="guide-step-number">1</div>
+                                <div className="guide-step-text">
+                                    <strong>{t('editor.step1Title')}</strong>
+                                    <span>{t('editor.step1Desc')}</span>
+                                </div>
+                            </div>
+                            <div className="guide-arrow">→</div>
+                            <div className="guide-step">
+                                <div className="guide-step-number">2</div>
+                                <div className="guide-step-text">
+                                    <strong>{t('editor.step2Title')}</strong>
+                                    <span>{t('editor.step2Desc')}</span>
+                                </div>
+                            </div>
+                            <div className="guide-arrow">→</div>
+                            <div className="guide-step">
+                                <div className="guide-step-number">3</div>
+                                <div className="guide-step-text">
+                                    <strong>{t('editor.step3Title')}</strong>
+                                    <span>{t('editor.step3Desc')}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

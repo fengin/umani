@@ -13,6 +13,9 @@ export const articleApi = {
     save: (articleId: number, content: string) =>
         tauriInvoke<void>('save_article', { articleId, content }),
 
+    get: (articleId: number) =>
+        tauriInvoke<Article>('get_article', { articleId }),
+
     list: () =>
         tauriInvoke<Article[]>('list_articles'),
 
