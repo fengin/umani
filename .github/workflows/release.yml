@@ -64,4 +64,5 @@ jobs:
           releaseBody: '余香 (Savor) ${{ github.ref_name }} 发布。请在下方下载对应平台的安装包。'
           releaseDraft: true
           prerelease: false
+          includeUpdaterJson: false
           args: ${{ matrix.args }}
